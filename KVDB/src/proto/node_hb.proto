@@ -1,0 +1,14 @@
+syntax="proto2";
+package inspur_kvdb;
+
+message RegionHbInfo {
+    required string group_id = 1;
+    required string peer_id = 2;
+    required bool   is_leader = 3;
+}
+
+message HbRequest {
+    required string node_addr = 1; 
+    repeated RegionHbInfo group_info = 2;//list of raft groups
+     
+};

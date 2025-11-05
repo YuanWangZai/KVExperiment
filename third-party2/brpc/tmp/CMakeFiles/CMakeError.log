@@ -1,0 +1,60 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/icfs/project/kv/brpc/tmp/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f951d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f951d.dir/build.make CMakeFiles/cmTC_f951d.dir/build
+gmake[1]: Entering directory '/var/log/project/kv/brpc/tmp/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f951d.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -DBRPC_WITH_GLOG=1 -DBRPC_WITH_RDMA=1 -DGFLAGS_NS=google -DBTHREAD_USE_FAST_PTHREAD_MUTEX -D__const__=__unused__ -D_GNU_SOURCE -DUSE_SYMBOLIZE -DNO_TCMALLOC -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS -DBRPC_REVISION=\"\" -D__STRICT_ANSI__ -g  -O2 -pipe -Wall -W -fPIC -fstrict-aliasing -Wno-unused-parameter -fno-omit-frame-pointer  -o CMakeFiles/cmTC_f951d.dir/src.c.o -c /home/icfs/project/kv/brpc/tmp/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_f951d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f951d.dir/link.txt --verbose=1
+/usr/bin/cc   -DBRPC_WITH_GLOG=1 -DBRPC_WITH_RDMA=1 -DGFLAGS_NS=google -DBTHREAD_USE_FAST_PTHREAD_MUTEX -D__const__=__unused__ -D_GNU_SOURCE -DUSE_SYMBOLIZE -DNO_TCMALLOC -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS -DBRPC_REVISION=\"\" -D__STRICT_ANSI__ -g  -O2 -pipe -Wall -W -fPIC -fstrict-aliasing -Wno-unused-parameter -fno-omit-frame-pointer  -rdynamic CMakeFiles/cmTC_f951d.dir/src.c.o -o cmTC_f951d 
+CMakeFiles/cmTC_f951d.dir/src.c.o: In function `main':
+/home/icfs/project/kv/brpc/tmp/CMakeFiles/CMakeTmp/src.c:11: undefined reference to `pthread_create'
+/home/icfs/project/kv/brpc/tmp/CMakeFiles/CMakeTmp/src.c:12: undefined reference to `pthread_detach'
+/home/icfs/project/kv/brpc/tmp/CMakeFiles/CMakeTmp/src.c:13: undefined reference to `pthread_cancel'
+/home/icfs/project/kv/brpc/tmp/CMakeFiles/CMakeTmp/src.c:14: undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_f951d.dir/build.make:99: cmTC_f951d] Error 1
+gmake[1]: Leaving directory '/var/log/project/kv/brpc/tmp/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_f951d/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/icfs/project/kv/brpc/tmp/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c4182/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c4182.dir/build.make CMakeFiles/cmTC_c4182.dir/build
+gmake[1]: Entering directory '/var/log/project/kv/brpc/tmp/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c4182.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DBRPC_WITH_GLOG=1 -DBRPC_WITH_RDMA=1 -DGFLAGS_NS=google -DBTHREAD_USE_FAST_PTHREAD_MUTEX -D__const__=__unused__ -D_GNU_SOURCE -DUSE_SYMBOLIZE -DNO_TCMALLOC -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS -DBRPC_REVISION=\"\" -D__STRICT_ANSI__ -g  -O2 -pipe -Wall -W -fPIC -fstrict-aliasing -Wno-unused-parameter -fno-omit-frame-pointer -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_c4182.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c4182
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c4182.dir/link.txt --verbose=1
+/usr/bin/cc   -DBRPC_WITH_GLOG=1 -DBRPC_WITH_RDMA=1 -DGFLAGS_NS=google -DBTHREAD_USE_FAST_PTHREAD_MUTEX -D__const__=__unused__ -D_GNU_SOURCE -DUSE_SYMBOLIZE -DNO_TCMALLOC -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS -DBRPC_REVISION=\"\" -D__STRICT_ANSI__ -g  -O2 -pipe -Wall -W -fPIC -fstrict-aliasing -Wno-unused-parameter -fno-omit-frame-pointer -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_c4182.dir/CheckFunctionExists.c.o -o cmTC_c4182  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_c4182.dir/build.make:99: cmTC_c4182] Error 1
+gmake[1]: Leaving directory '/var/log/project/kv/brpc/tmp/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_c4182/fast] Error 2
+
+
+

@@ -1,0 +1,21 @@
+{
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    // clangd
+    "clangd.path": "/home/icfs/clangd_13.0.0/bin/clangd", // 直接使用环境变量
+    // Clangd 运行参数(在终端/命令行输入 clangd --help-list-hidden 可查看更多)
+    "clangd.arguments": [
+        "--header-insertion=never", // 全局补全(补全建议会给出在当前作用域不可见的索引,插入后自动补充作用域标识符),例如在main()中直接写cout,即使没有`#include <iostream>`,也会给出`std::cout`的建议,配合"--header-insertion=iwyu",还可自动插入缺失的头文件
+        "--background-index", // 后台分析并保存索引文件
+        "--compile-commands-dir=${workspaceFolder}", // 编译数据库(例如 compile_commands.json 文件)的目录位置
+        "--completion-style=detailed", // 建议风格：打包(重载函数只会给出一个建议);还可以设置为 detailed
+        "--log=info", // 让 Clangd 生成更详细的日志
+    ],
+    // Clangd 找不到编译数据库(例如 compile_flags.json 文件)时采用的设置,缺陷是不能直接索引同一项目的不同文件,只能分析系统头文件、当前文件和include的文件
+    "clangd.onConfigChanged": "restart", // 重启 clangd 时重载配置,具体方法: F1 + Fn 打开命令面板，然后搜索“clangd: restart”
+    "clangd.serverCompletionRanking": true, // 借助网上的信息排序建议
+    "clangd.detectExtensionConflicts": true, // 当其它拓展与 clangd 冲突时警告并建议禁用
+    "editor.suggest.snippetsPreventQuickSuggestions": true,
+    "cmake.configureOnOpen": true,
+    "cmake.ignoreCMakeListsMissing": true, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
+}

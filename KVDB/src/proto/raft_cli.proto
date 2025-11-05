@@ -1,0 +1,15 @@
+syntax="proto2";
+package inspur_kvdb;
+option cc_generic_services = true;
+
+message GetLeaderRequest {
+};
+
+message GetLeaderResponse {
+    required string leader_addr = 1;
+    required bool success = 2;
+};
+
+service RaftCliService {
+    rpc leader(GetLeaderRequest) returns(GetLeaderResponse); 
+}

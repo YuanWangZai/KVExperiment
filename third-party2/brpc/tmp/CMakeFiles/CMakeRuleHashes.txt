@@ -1,0 +1,20 @@
+# Hashes of file build rules.
+080c4cf8b6e5af3329fc7aa799dc1f06 brpc/builtin_service.pb.h
+e0767f3217493e2d91bee027bd0a851a brpc/errno.pb.h
+fad5628a3313d90d251ecabdb8abf6e2 brpc/get_favicon.pb.h
+2b5c64ac61f1554ca59a039d846d935b brpc/get_js.pb.h
+3c762ddaa3289e475e229a878722106f brpc/nshead_meta.pb.h
+afb534fc1f3f170cfdcfa4f8ecd7e43d brpc/options.pb.h
+4835a9341c28c6af24f58bf76e3d9d98 brpc/policy/baidu_rpc_meta.pb.h
+86fcd2af031bc5314594ad3a6d8fbb74 brpc/policy/hulu_pbrpc_meta.pb.h
+cfc0b5ea7a0766442801dd030015021b brpc/policy/mongo.pb.h
+2aa2459b574ef6cf039bedcd2cea13f2 brpc/policy/public_pbrpc_meta.pb.h
+c6f7bbdd0f3d56afab54b247c8b89075 brpc/policy/sofa_pbrpc_meta.pb.h
+5ba261717e79c91b253a514be3f7692d brpc/proto_base.pb.h
+cc74ff02fda6c5ec8a648cd0367c6054 brpc/rpc_dump.pb.h
+1fd2e69f280ddd782ed86190c0f8b0b7 brpc/rtmp.pb.h
+f8f02efcb6ecb3756d0fbf4ddf028cb8 brpc/span.pb.h
+f3e6df4184211e0364de4453d63298c4 brpc/streaming_rpc_meta.pb.h
+e0f4ba1579f4fd995ac74fe721b25e57 brpc/trackme.pb.h
+ac40e7ffc3318112760b6e74de3abc96 idl_options.pb.h
+300f9e881c78465c96580b945a56ef76 tools/rpc_view/view.pb.h
